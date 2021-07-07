@@ -1,0 +1,2 @@
+﻿$path = Read-Host "Enter full path"
+Get-ADComputer -Filter 'operatingsystem -like "*server*" -and enabled -eq "true"' -Properties Name,Operatingsystem,OperatingSystemVersion,IPv4Address | Sort-Object -Property Operatingsystem | Select-Object -Property Name,Operatingsystem,OperatingSystemVersion,IPv4Address | Export-CSV "$path" -NoTypeInformation
